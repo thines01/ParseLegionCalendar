@@ -37,10 +37,6 @@
     <Reference Include="IDbMaster">
       <HintPath>..\IDbMaster\bin\Release\IDbMaster.dll</HintPath>
     </Reference>
-    <Reference Include="LegionCalObj, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LegionCalObj\bin\Release\LegionCalObj.dll</HintPath>
-    </Reference>
     <Reference Include="MasterToAttachmentFileProcess">
       <HintPath>..\MasterToAttachmentFileProcess\bin\Release\MasterToAttachmentFileProcess.dll</HintPath>
     </Reference>
@@ -63,6 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LegionCalObj\LegionCalObj.csproj">
+      <Project>{1eac440b-29c3-4a2f-8f81-69f6736a3bc5}</Project>
+      <Name>LegionCalObj</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
