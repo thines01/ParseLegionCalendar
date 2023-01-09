@@ -1,0 +1,5 @@
+C:\science\managed\ParseLegionCalendar\obj\Debug\net6.0\ParseLegionCalendar.csproj.AssemblyReference.cache
+C:\science\managed\ParseLegionCalendar\obj\Debug\net6.0\ParseLegionCalendar.GeneratedMSBuildEditorConfig.editorconfig
+C:\science\managed\ParseLegionCalendar\obj\Debug\net6.0\ParseLegionCalendar.AssemblyInfoInputs.cache
+C:\science\managed\ParseLegionCalendar\obj\Debug\net6.0\ParseLegionCalendar.AssemblyInfo.cs
+C:\science\managed\ParseLegionCalendar\obj\Debug\net6.0\ParseLegionCalendar.csproj.CoreCompileInputs.cache
