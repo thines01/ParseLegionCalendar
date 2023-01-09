@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "T/MgfbyzDyz+MTeupOU2jvh/fkb/6Yc8SJZBD3j7RnBxJdFCRkt20I26CGOqKEXUBID0vB0yapexpfrjKfjD2A==",
+  "success": true,
+  "projectFilePath": "C:\\science\\managed\\ParseLegionCalendar\\ParseLegionCalendar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thine\\.nuget\\packages\\documentformat.openxml\\2.19.0\\documentformat.openxml.2.19.0.nupkg.sha512",
+    "C:\\Users\\thine\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\thine\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\thine\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
+    "C:\\Users\\thine\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\thine\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

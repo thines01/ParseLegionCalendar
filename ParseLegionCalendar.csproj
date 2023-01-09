@@ -1,70 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E1E64ED-7375-47D8-8D0B-A17D2498E994}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ParseLegionCalendar</RootNamespace>
-    <AssemblyName>ParseLegionCalendar</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ApplicationIcon>TomHines.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="TomHines.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.19.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <Reference Include="IDbMaster">
-      <HintPath>..\IDbMaster\bin\Release\IDbMaster.dll</HintPath>
+      <HintPath>..\IDbMaster\bin\Release\net5.0\IDbMaster.dll</HintPath>
+    </Reference>
+    <Reference Include="LegionCalObj">
+      <HintPath>..\LegionCalObj\bin\Release\net5.0\LegionCalObj.dll</HintPath>
     </Reference>
     <Reference Include="MasterToAttachmentFileProcess">
-      <HintPath>..\MasterToAttachmentFileProcess\bin\Release\MasterToAttachmentFileProcess.dll</HintPath>
+      <HintPath>..\MasterToAttachmentFileProcess\bin\Release\net5.0-windows\MasterToAttachmentFileProcess.dll</HintPath>
     </Reference>
     <Reference Include="NowTime">
-      <HintPath>..\..\..\911_dev\managed\bin\NowTime.dll</HintPath>
+      <HintPath>..\NowTime\bin\Release\net5.0\NowTime.dll</HintPath>
     </Reference>
-    <Reference Include="ReportSpanHelper">
-      <HintPath>..\ReportSpanHelper\bin\Release\ReportSpanHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportTimeSpan">
-      <HintPath>..\ReportTimeSpan\bin\Release\ReportTimeSpan.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ParseLegionCalendar.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LegionCalObj\LegionCalObj.csproj">
-      <Project>{1eac440b-29c3-4a2f-8f81-69f6736a3bc5}</Project>
-      <Name>LegionCalObj</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XMLHelper</name>
+    </assembly>
+    <members>
+        <member name="T:XMLHelper.CWorksheetHelper">
+            <summary>
+            Abstracts the Excel Worksheet creation process.
+            </summary>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.AutofitAllColumns">
+            <summary>
+            Checks the length of all items in each column and creates a custom
+            width for each.
+            </summary>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.GetStoredRow(System.Int32)">
+            <summary>
+            Gets the Row at the specified index of _Rows.
+            </summary>
+            <param name="rowIndex">Index to look at</param>
+            <returns>Row at that index</returns>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.GetColumnsElement">
+            <summary>
+            Retrieves the Columns element of the Worksheet.
+            </summary>
+            <returns>Columns element</returns>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.GetCellRefsInRange(System.String)">
+            <summary>
+            Returns an Array of string CellReferences of all Cells that exist
+            within the given CellRange.
+            </summary>
+            <param name="strReferenceRange">Range to look in</param>
+            <returns>Array of CellReference strings</returns>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.MergeCells(System.String,System.String,System.String,DocumentFormat.OpenXml.Spreadsheet.CellValues,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Merge Cells from given top-left to bottom-right references.
+            </summary>
+            <param name="strTopLeftCellRef">Reference of Cell at the top-left</param>
+            <param name="strBottomRightCellRef">Reference of Cell at the bottom-right</param>
+            <param name="strData">Data to enter in the new Cell</param>
+            <param name="dataType">Type of data to store in the master Cell</param>
+            <param name="cellFormat">Format of the new Cell</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.GetAllMergeMasterCellReferences">
+            <summary>
+            Gets a string[] of CellReference strings for the Master Cell for each
+            MergeCell group.
+            </summary>
+            <returns>CellReference strings for the Master Cell of each MergeCell group</returns>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.GetAllHorizontalMergeMasterCellReferences">
+            <summary>
+            Gets a string[] of CellReference strings for the Master Cell for each
+            MergeCell group of more than one column.
+            </summary>
+            <returns>CellReference strings for the Master Cell of each MergeCell group</returns>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreCellData(DocumentFormat.OpenXml.Spreadsheet.Cell,System.String,System.Boolean,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Stores the data and format into the Cell
+            </summary>
+            <param name="cell">The Cell that will accept the data</param>
+            <param name="strData">The data to add to the Cell</param>
+            <param name="blnNumCol">true => this is a numeric column</param>
+            <param name="cellFormat">The CellFormat for this Cell</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreDataCell(System.String,System.String,DocumentFormat.OpenXml.Spreadsheet.CellValues,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Stores a Cell of data.
+            </summary>
+            <param name="strCellRef">Cell reference</param>
+            <param name="strData">Data to enter</param>
+            <param name="type">Type of data</param>
+            <param name="cellFormat">Cell format</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreDataColumn(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Boolean,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Stores a column of data.
+            </summary>
+            <param name="topRow">Index of the top Row to add to</param>
+            <param name="column">Index of the column to add to</param>
+            <param name="lstData">List of data to enter</param>
+            <param name="isNumeric">Whether the data is numeric</param>
+            <param name="cellFormat">Cell format to apply to the data Cells</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreRowData(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Int32},DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Saves the Row data to Array of Rows.
+            </summary>
+            <param name="rowIndex">Index of Row to add to</param>
+            <param name="column">Leftmost column to begin adding data</param>
+            <param name="data">List of strings to add</param>
+            <param name="numericColumns">List of columns to be stored as numbers</param>
+            <param name="cellFormat">Format to be applied to data Cells</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreRowData(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.Dictionary{System.Int32,DocumentFormat.OpenXml.UInt32Value})">
+            <summary>
+            Saves the Row data to Array of Rows.
+            </summary>
+            <param name="rowIndex">Index of Row to add to</param>
+            <param name="column">Leftmost column to begin adding data</param>
+            <param name="data">List of strings to add</param>
+            <param name="numericColumns">List of columns to be stored as numbers</param>
+            <param name="map_i2icolumn2cellFormat">Format to be applied to data Cells, by column. Index 0 to be ignored.</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.ToExcelRange(System.Int32,System.Int32,System.String[][],System.Collections.Generic.IEnumerable{System.Int32},DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Adds the data from a 2-D jagged string Array to the Worksheet, with
+            the Cell at firstRow and firstColumn as the top-left cell.
+            </summary>
+            <param name="firstRow">Index of top Row to add to</param>
+            <param name="firstColumn">Index of leftmost column to add to</param>
+            <param name="arr2dData">string[][] of data to pull from</param>
+            <param name="lstNumericColumns">List if column numbers of numeric columns</param>
+            <param name="cellFormat">Format to apply to each Cell in the range</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.ToExcelRange(System.Int32,System.Int32,System.String[][],System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.Dictionary{System.Int32,DocumentFormat.OpenXml.UInt32Value})">
+            <summary>
+            Adds the data from a 2-D jagged string Array to the Worksheet, with
+            the Cell at firstRow and firstColumn as the top-left cell.
+            </summary>
+            <param name="firstRow">Index of top Row to add to</param>
+            <param name="firstColumn">Index of leftmost column to add to</param>
+            <param name="arr2dData">string[][] of data to pull from</param>
+            <param name="lstNumericColumns">List if column numbers of numeric columns</param>
+            <param name="map_i2icolumn2cellFormat">Format to apply to each column of Cells in the range. Index 0 will be ignored.</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreFormulaCell(System.String,System.String,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Adds a formula Cell to the stored data.
+            </summary>
+            <param name="strCellRef">Reference of the formula Cell</param>
+            <param name="strFormula">Formula to add</param>
+            <param name="cellFormat">Format of the formula Cell</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreFormulaColumn(System.Int32,System.Int32,System.Int32,System.String,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Stores a column of like formulas.
+            </summary>
+            <param name="iTopRow">Index of the first Row to add to</param>
+            <param name="iColumn">Index of the column to add to</param>
+            <param name="numToApply">Number of Cells to add to</param>
+            <param name="strFormula">The formula</param>
+            <param name="cellFormat">Cell format</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreFormulaRow(System.Int32,System.Int32,System.Int32,System.String,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Stores a row of like formulas.
+            </summary>
+            <param name="rowIndex">Index of the Row to add to</param>
+            <param name="firstColumn">Index of the first column to add to</param>
+            <param name="numColumns">Number of Cells to add to</param>
+            <param name="strFormula">The formula</param>
+            <param name="cellFormat">Cell format</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.StoreSharedFormulaCell(System.Int32,System.Int32,System.String,System.String,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Inserts a SharedFormula Cell.
+            </summary>
+            <param name="rowIndex">Index of the Row to add to</param>
+            <param name="firstColumn">Index of column to add to</param>
+            <param name="strFormula">The formula. NOTE: Only the Master Cell gets the formula</param>
+            <param name="strReference">Which Cells the SharedFormula is shared by. NOTE: Only the Master Cell gets the Reference</param>
+            <param name="cellFormat">Cell format</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.#ctor(DocumentFormat.OpenXml.Packaging.SpreadsheetDocument,System.String)">
+            <summary>
+            CWorksheetHelper constructor. Creates a Worksheet in the given
+            SpreadsheetDocument and named as the passed string.
+            </summary>
+            <param name="sd">SpreadsheetDocument in which to create new Worksheet</param>
+            <param name="strSheetName">Name of the new Worksheet</param>
+        </member>
+        <member name="M:XMLHelper.CWorksheetHelper.SaveWorksheet">
+            <summary>
+            Inserts the Array of Rows into this Worksheet.
+            NOTE: This action writes data to the file.
+            </summary>
+        </member>
+    </members>
+</doc>
